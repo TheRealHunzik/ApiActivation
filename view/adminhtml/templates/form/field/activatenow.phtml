@@ -1,0 +1,30 @@
+<script>
+require(
+    ['jquery','mage/url','Magento_Ui/js/modal/alert'], 
+    function($,url,malert) {
+        $('#activate_now').click(function() {
+            var requestUrl='<?php echo $block->getAjaxUrl() ?>';
+            console.log(requestUrl);
+            $.ajax({
+                  method: "POST",
+                  url: requestUrl,
+                  data: {form_key: window.FORM_KEY},
+                  dataType: "json",
+                  showLoader: true,
+            }).done(function( response ) {
+                malert({
+                    title: $.mage.__(response.result),
+                    content: $.mage.__(response.message),
+                    actions: {
+                        always: function(){}
+                    }
+                });
+                if(response.result){
+                    $('#activate_now').hide();
+                    
+                }
+            });
+        });
+ });
+</script>
+<?php echo $block->getButtonHtml() ?>

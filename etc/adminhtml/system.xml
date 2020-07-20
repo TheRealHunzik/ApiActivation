@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="custommodule" translate="label" sortOrder="650">
+            <label>Custom Module</label>
+        </tab>
+        <section id="activatemodule" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>API Token Module</label>
+            <tab>custommodule</tab>
+            <resource>TheRealHunzik_ApiActivation::config_setting</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+                <field id="enable_frontend" translate="label" type="select" sortOrder="101" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable on frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="token_key" translate="label" type="hidden" sortOrder="101" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="status" translate="label" type="hidden" sortOrder="101" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label></label>
+                </field>
+                <field id="activate_now" translate="label" type="text" sortOrder="101" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label></label>
+                    <depends>
+                        <field id="activatemodule/general/enable_frontend">1</field>
+                    </depends>
+                    <frontend_model>TheRealHunzik\ApiActivation\Block\Adminhtml\Form\Field\ActivateNow</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
