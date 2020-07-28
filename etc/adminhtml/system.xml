@@ -29,6 +29,15 @@
                     <frontend_model>TheRealHunzik\ApiActivation\Block\Adminhtml\Form\Field\ActivateNow</frontend_model>
                 </field>
             </group>
+            <group id="second" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Second Group</label>
+                <depends>
+                    <field id="activatemodule/general/enable_frontend">1</field>
+                </depends>
+                <field id="second_feild" translate="label" type="text" sortOrder="101" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Second Feild</label>
+                </field>
+            </group>
         </section>
     </system>
 </config>
